@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Autorización · Trivia 24/7</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <h1>Autorización</h1>
+  <p id="msg">Copia esta dirección completa (la barra del navegador) y pégala en el servidor de Trivia 24/7.</p>
+  <footer><a href="index.html">← Trivia 24/7</a></footer>
+</main>
+<script>
+  var p = new URLSearchParams(location.search);
+  if (p.get('error')) document.getElementById('msg').textContent = 'Error: ' + p.get('error') + ' ' + (p.get('error_description') || '');
+  else if (!p.get('code')) document.getElementById('msg').textContent = 'Página de retorno de la autorización. No hay nada que hacer aquí.';
+</script>
+</body>
+</html>
